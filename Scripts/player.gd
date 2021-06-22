@@ -2,18 +2,29 @@ extends KinematicBody2D
 class_name Player
 
 
-var input = Vector2(1, 0)
-var last_input = Vector2(1, 0)
-var movement = Vector2(1, 0)
-var last_movement = Vector2(1, 0)
+var internal_id
+var color = Global.colors.white
+
+var input :Vector2 = Vector2()
+var last_input :Vector2 = Vector2()
+var movement :Vector2 = Vector2()
+var last_movement :Vector2 = Vector2()
+
+const speed = 2
 
 
-signal occupy(tilev)
+signal occupy(tilev, color)
 
 
 func _ready():
-#	set_physics_process(true)
-	pass
+	set_physics_process(false)
+
+
+func init_movement(direction):
+	input = direction
+	last_input = direction
+	movement = direction
+	last_movement = direction
 
 
 func _get_input():
@@ -48,17 +59,23 @@ func _input_to_movement():
 	var aux1 = global_position.x/Global.tile_size
 	var aux2 = global_position.y/Global.tile_size
 	
+#	if (
+#		(abs(aux1 - int(aux1)) < 0.00001) and
+#		(abs(aux2 - int(aux2)) < 0.00001)
+#	):
 	if (
-		(abs(aux1 - int(aux1)) < 0.00001) and
-		(abs(aux2 - int(aux2)) < 0.00001)
+		aux1 == int(aux1) and
+		aux2 == int(aux2)
 	):
-		print(global_position/Global.tile_size)
-		emit_signal("occupy", global_position/Global.tile_size)
+		global_position.x = int(global_position.x)
+		global_position.y = int(global_position.y)
+		
+		emit_signal("occupy", global_position/Global.tile_size, color)
 		movement = input
 		
 		
 func _move():
-	global_position += movement * 2
+	global_position += movement * speed
 
 
 func _physics_process(delta):

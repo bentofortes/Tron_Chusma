@@ -6,4 +6,4 @@ func fill(multiplier):
 	
 	for i in range(end.x):
 		for i2 in range(end.y):
-			set_cellv(Vector2(i, i2), Global.tiles.white)
+			set_cellv(Vector2(i, i2), Global.colors.white)
