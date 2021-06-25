@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Tron_Chusma"
-run/main_scene="res://Scenes/Parent.tscn"
+run/main_scene="res://Scenes/Lobby.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Scripts/global.gd"
+Worker="*res://Scripts/worker.gd"
 
 [display]
 

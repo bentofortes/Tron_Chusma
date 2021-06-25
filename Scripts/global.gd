@@ -2,15 +2,6 @@ extends Node
 
 
 const min_players = 2
-func players_to_size(n):
-	if n <= 2:
-		return 3
-	elif n <= 4:
-		return 4
-	elif n <= 6:
-		return 5
-	else:
-		return 6
 
 const colors = {
 	"white": 0,
@@ -28,8 +19,26 @@ const colors = {
 	"pink": 12,
 	"grey": 13,
 }
+const color_name = [
+	"white",
+	"black",
+	"red",
+	"l_green",
+	"lilac",
+	"orange",
+	"l_pink",
+	"d_green",
+	"d_blue",
+	"l_blue",
+	"yellow",
+	"brown",
+	"pink",
+	"grey",
+]
 
 const tile_size = 16
 const base_res = Vector2(32, 19)
 
 var screen_res = Vector2()
+
+
