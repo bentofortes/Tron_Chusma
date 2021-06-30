@@ -9,25 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Scripts/World/parent.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scripts/player.gd"
+"path": "res://Scripts/Player/player.gd"
 } ]
 _global_script_class_icons={
+"Level": "",
 "Player": ""
 }
 
 [application]
 
 config/name="Tron_Chusma"
-run/main_scene="res://Scenes/Lobby.tscn"
+run/main_scene="res://Scenes/Server/Lobby.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scripts/global.gd"
-Worker="*res://Scripts/worker.gd"
+Global="*res://Scripts/Global/global.gd"
+Worker="*res://Scripts/Global/worker.gd"
 
 [display]
 
